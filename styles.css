@@ -76,7 +76,10 @@ main {
     align-items: center;
     margin-bottom: 10rem;
     border-radius: 20px;
+    border: 10px solid #EB5160;
+    transition: all 300ms;
 }
+
 
 .btn {
     background: rgba(255, 255, 255, 0.12);
@@ -111,4 +114,16 @@ main {
 
 .ml-3 {
     margin-left: 0.5rem;
+}
+
+.win-con {
+    border: 10px solid greenyellow;
+}
+
+.lose-con {
+    border: 10px solid red;    
+}
+
+.draw-con {
+    border:  10px solid white;
 }
