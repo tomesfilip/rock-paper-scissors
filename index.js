@@ -15,19 +15,37 @@ const drawCondition = () => statementText.innerHTML = 'Draw due to same choice';
 const changeBorderColor = (className) => {
     buttonWrapper.classList.add(className);
     setTimeout(() => buttonWrapper.classList.remove(className), 350)
-}
+};
+
+const chooseKillingWord = (choice) => {
+    let killingWord = '';
+    switch (choice) {
+        case 'rock':
+            killingWord = 'breaks';
+            break;
+        case 'scissors':
+            killingWord = 'cut';
+            break;
+        case 'paper':
+            killingWord = 'wraps';
+            break;
+        default:
+            console.log('error');
+    }
+    return killingWord;
+};
 
 const computerWin = (userChoice, compChoice) => {
     compScore += 1;
     compScoreText.innerHTML = compScore;
-    statementText.innerHTML = `Computer's ${compChoice} kills player's ${userChoice}!`;
+    statementText.innerHTML = `Computer's ${compChoice} ${chooseKillingWord(compChoice)} player's ${userChoice}!`;
     changeBorderColor('lose-con');
 };
 
 const userWin = (userChoice, compChoice) => {
     userScore += 1;
     userScoreText.innerHTML = userScore;
-    statementText.innerHTML = `Player's ${userChoice} kills computer's ${compChoice}!`;
+    statementText.innerHTML = `Player's ${userChoice} ${chooseKillingWord(userChoice)} computer's ${compChoice}!`;
     changeBorderColor('win-con');
 };
 
@@ -54,4 +72,3 @@ const makePlay = (userChoice) => {
     const compChoice = choices[generateRandomNum()];
     decideCondition(userChoice, compChoice);
 };
-
